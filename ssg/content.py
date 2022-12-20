@@ -7,9 +7,10 @@ class Content(Mapping):
     __delimiter = r"^(?:-|\+){3}\s*$"
     __regex = re.compile(__delimiter, re.MULTILINE)
 
+    @classmethod
     def load(self, cls, string):
-        _, fm, content = __regex.split(string, 2)
-        self.load(fm, Loader=FullLoader)
+        _, fm, content = cls.__regex.split(string, 2)
+        metadata = load(fm, Loader=FullLoader)
 
         return cls(metadata, content)
 
@@ -26,7 +27,7 @@ class Content(Mapping):
         return self.data["type"] if "type" in self.data else None
     
     @type.setter
-    def type(self):
+    def type(self, type):
         self.data["type"] = type
 
     
