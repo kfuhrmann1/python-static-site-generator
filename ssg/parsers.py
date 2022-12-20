@@ -33,7 +33,7 @@ class Parser:
 
 class ResourceParser(Parser):
 
-    extensions = [".jpg", ".png", ".gif", ".css", "html"]
+    extensions = [".jpg", ".png", ".gif", ".css", ".html"]
 
     # def __init__(self, extensions):
     #     super().__init__(extensions)
