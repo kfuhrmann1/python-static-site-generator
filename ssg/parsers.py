@@ -3,7 +3,7 @@ from pathlib import Path
 import shutil
 
 class Parser:
-    extensions: List[str]
+    extensions: List[str] = []
 
     def __init__(self, extensions):
         self.extensions = extensions
@@ -29,7 +29,7 @@ class Parser:
     
 
     def copy(self, path, source, dest):
-        shutil.copy2(path, dest.relative_to(source))
+        shutil.copy2(path, dest / path.relative_to(source))
 
 
 class ResourceParser(Parser):
